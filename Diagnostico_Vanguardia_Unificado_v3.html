@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguardia · Diagnóstico Unificado 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F2EFE7;
+  --bg-card: #FFFFFF;
+  --bg-dark: #0F0F0E;
+  --ink: #0F0F0E;
+  --ink-2: #4A4A47;
+  --ink-3: #8A8A85;
+  --rule: #1A1A18;
+  --rule-soft: #D6D2C7;
+  --accent: #D2371E;
+  --accent-dark: #A82815;
+  --accent-soft: #FCE8E3;
+  --positive: #1F4D2C;
+  --positive-soft: #DDE9DE;
+  --cyan: #0077AA;
+  --cyan-soft: #E3F2F9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "tnum" 1; }
+.display { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; font-weight: 500; letter-spacing: -0.04em; line-height: 0.95; }
+.display-italic { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; font-weight: 500; font-style: italic; letter-spacing: -0.03em; line-height: 1; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+/* HEAD BAR */
+.head-bar { border-bottom: 1px solid var(--rule); padding: 18px 0; position: sticky; top: 0; background: var(--bg); z-index: 100; }
+.head-bar-inner { display: flex; justify-content: space-between; align-items: center; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-style: italic; font-size: 20px; letter-spacing: -0.02em; }
+.head-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.head-meta::before { content: ""; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+
+/* SECTIONS */
+section { padding: 100px 0; border-top: 1px solid var(--rule); }
+section:first-of-type { border-top: none; }
+.section-kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.section-kicker::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+.section-title { font-size: clamp(42px, 6vw, 88px); margin-bottom: 28px; max-width: 1000px; }
+.section-lead { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 740px; margin-bottom: 64px; }
+
+/* HERO */
+.hero { padding: 80px 0 120px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; border-top: none; }
+.hero-kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+.hero-kicker::before, .hero-kicker::after { content: ""; flex: 1; height: 1px; background: var(--rule); max-width: 100px; }
+.hero-headline { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.05; letter-spacing: -0.02em; max-width: 1080px; margin-bottom: 36px; }
+.hero-headline .accent { color: var(--accent); }
+.hero-sub { font-size: 19px; color: var(--ink-2); max-width: 660px; line-height: 1.55; border-left: 3px solid var(--accent); padding-left: 20px; }
+.hero-big-num { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; font-weight: 500; font-size: clamp(100px, 18vw, 260px); line-height: 0.85; letter-spacing: -0.05em; margin-bottom: 24px; }
+.hero-big-num span { color: var(--accent); font-style: italic; }
+
+/* STAT GRID */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 56px; }
+.stat-cell { background: var(--bg); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; }
+.stat-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); }
+.stat-cell .value { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(40px, 4.5vw, 64px); line-height: 0.95; letter-spacing: -0.03em; margin: 20px 0 6px; }
+.stat-cell .value.warn { color: var(--accent); }
+.stat-cell .value.pos { color: var(--positive); }
+.stat-cell .note { font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+
+/* ALERT BOX */
+.alert-box { border-left: 4px solid var(--accent); padding: 20px 28px; background: var(--accent-soft); margin-bottom: 48px; }
+.alert-box p { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(18px, 2vw, 22px); line-height: 1.4; color: var(--ink); }
+.alert-box p strong { font-style: normal; color: var(--accent); font-weight: 500; }
+
+/* LOYALTY BARS */
+.loyalty-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: start; }
+.loyalty-row { display: grid; grid-template-columns: 110px 1fr 100px; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--rule-soft); }
+.loyalty-row:last-child { border-bottom: none; }
+.loyalty-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; }
+.loyalty-name.red { color: var(--accent); font-style: italic; }
+.loyalty-bar { height: 34px; border-radius: 2px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.loyalty-bar.new { background: var(--ink-3); }
+.loyalty-bar.fly { background: #6A6A65; }
+.loyalty-bar.loyal { background: var(--accent); }
+.loyalty-bar.lover { background: var(--accent-dark); }
+.loyalty-pct { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-3); }
+.loyalty-value { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; text-align: right; }
+.insight-box { background: var(--bg-card); border: 1px solid var(--rule); padding: 36px; position: sticky; top: 100px; }
+.insight-box h3 { font-size: 26px; line-height: 1.2; margin-bottom: 20px; font-style: italic; }
+.eq-row { display: flex; align-items: baseline; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule-soft); }
+.eq-row:last-of-type { border-bottom: 1px solid var(--rule-soft); }
+.eq-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; line-height: 1; color: var(--accent); letter-spacing: -0.03em; }
+.eq-text { font-size: 15px; color: var(--ink-2); line-height: 1.4; }
+
+/* TRAFFIC */
+.traffic-row { display: grid; grid-template-columns: 160px 1fr 280px; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule-soft); align-items: center; border-top: 1px solid var(--rule); }
+.traffic-row + .traffic-row { border-top: none; }
+.traffic-row.hl { background: var(--accent-soft); margin: 0 -16px; padding: 26px 16px; }
+.traffic-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+.traffic-name .sub { display: block; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-3); margin-top: 4px; font-weight: 400; }
+.traffic-bar-wrap { display: flex; align-items: center; gap: 12px; }
+.traffic-bar { height: 14px; background: var(--ink-3); border-radius: 2px; }
+.traffic-bar.strong { background: var(--accent); height: 24px; }
+.traffic-metrics { display: flex; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+.tm .l { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 4px; }
+.tm .v { font-size: 18px; font-weight: 500; }
+.tm .v.big { color: var(--accent); font-size: 22px; }
+
+/* PARETO */
+.pareto-section { background: var(--bg-dark); color: var(--bg); padding: 120px 0; }
+.pareto-section .section-kicker { color: var(--accent); }
+.pareto-section .section-title { color: var(--bg); }
+.pareto-section .section-lead { color: rgba(242,239,231,.7); }
+.pareto-row { display: grid; grid-template-columns: 200px 1fr 200px; gap: 28px; align-items: center; margin-bottom: 28px; }
+.pareto-label { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; color: var(--bg); }
+.pareto-label .sub { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(242,239,231,.5); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
+.pareto-track { height: 44px; background: rgba(242,239,231,.1); }
+.pareto-fill { height: 100%; background: var(--accent); }
+.pareto-result { font-family: 'Fraunces', serif; font-weight: 500; font-size: 36px; color: var(--accent); letter-spacing: -0.02em; }
+
+/* WASTE */
+.waste-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 48px; }
+.waste-cell { background: var(--bg); padding: 36px 24px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; }
+.waste-cell.warn { background: var(--accent-soft); }
+.waste-cell.pos { background: var(--positive-soft); }
+.waste-pct { font-family: 'Fraunces', serif; font-weight: 500; font-size: 72px; line-height: 0.9; letter-spacing: -0.04em; }
+.waste-cell.warn .waste-pct { color: var(--accent); font-style: italic; }
+.waste-cell.pos .waste-pct { color: var(--positive); }
+.waste-sign { font-family: 'IBM Plex Sans', sans-serif; font-size: 28px; vertical-align: top; }
+.waste-label { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin-top: 12px; line-height: 1.2; }
+.waste-note { font-size: 13px; color: var(--ink-2); margin-top: 10px; line-height: 1.4; }
+
+/* COMPARE */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 40px; }
+.compare-side { background: var(--bg-card); padding: 44px 36px; }
+.compare-side.winner { background: var(--ink); color: var(--bg); }
+.compare-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 8px; }
+.compare-side.winner .compare-name { color: rgba(242,239,231,.5); }
+.compare-h { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 36px; }
+.compare-stats { display: flex; flex-direction: column; gap: 20px; }
+.cs .l { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 6px; }
+.compare-side.winner .cs .l { color: rgba(242,239,231,.5); }
+.cs .v { font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; line-height: 0.95; letter-spacing: -0.03em; }
+.cs .v .u { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; color: var(--ink-3); margin-left: 6px; }
+.compare-side.winner .cs .v .u { color: rgba(242,239,231,.5); }
+.c-rule { height: 1px; background: var(--rule-soft); margin: 4px 0; }
+.ratio-box { text-align: center; padding: 36px; background: var(--bg); border: 1px solid var(--rule); margin-bottom: 48px; }
+.ratio-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(56px, 8vw, 110px); line-height: 1; color: var(--accent); letter-spacing: -0.04em; }
+.ratio-text { font-size: 18px; color: var(--ink-2); margin-top: 14px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+/* TOP PIEZAS */
+.pieces-list { border-top: 1px solid var(--rule); }
+.piece-item { padding: 28px 0; border-bottom: 1px solid var(--rule-soft); display: grid; grid-template-columns: 72px 1fr 240px; gap: 28px; align-items: center; }
+.piece-rank { font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; color: var(--accent); letter-spacing: -0.03em; line-height: 0.9; }
+.piece-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; }
+.piece-meta { display: flex; gap: 20px; justify-content: flex-end; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+.pm .l { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 4px; }
+.pm .v { font-size: 17px; font-weight: 500; }
+.pm .v.acc { color: var(--accent); }
+
+/* IMPRESO SECTION */
+.impreso-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 48px; }
+.impreso-cell { background: var(--bg); padding: 40px 32px; }
+.impreso-cell .ic-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 12px; }
+.impreso-cell .ic-val { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 10px; }
+.impreso-cell .ic-val.warn { color: var(--accent); font-style: italic; }
+.impreso-cell .ic-note { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+
+/* GENRE MATRIX */
+.genre-matrix { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 40px; }
+.gm-cell { background: var(--bg); padding: 28px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; }
+.gm-cell.absent { background: var(--accent-soft); }
+.gm-cell.present { background: var(--positive-soft); }
+.gm-icon { font-size: 28px; margin-bottom: 10px; opacity: .35; }
+.gm-cell.absent .gm-icon { opacity: 1; }
+.gm-cell.present .gm-icon { opacity: 1; }
+.gm-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.10em; color: var(--ink-2); margin-bottom: 6px; line-height: 1.3; }
+.gm-badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; }
+.gm-cell.absent .gm-badge { color: var(--accent); }
+.gm-cell.present .gm-badge { color: var(--positive); }
+
+/* OPACIDAD */
+.opacity-list { border-top: 1px solid var(--rule); margin-bottom: 48px; }
+.opacity-item { display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); }
+.op-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.op-dot.red { background: var(--accent); }
+.op-dot.cyan { background: var(--cyan); }
+.op-dot.gray { background: var(--ink-3); }
+.op-text { font-size: 16px; line-height: 1.6; color: var(--ink); }
+.op-text strong { font-weight: 600; }
+
+/* FACTS */
+.facts-list { border-top: 1px solid var(--rule); }
+.fact-item { display: grid; grid-template-columns: 90px 1fr; gap: 48px; padding: 44px 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline; }
+.fact-num { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 56px; line-height: 0.9; color: var(--accent); letter-spacing: -0.03em; }
+.fact-text { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.25; letter-spacing: -0.01em; }
+.fact-text strong { color: var(--accent); font-style: italic; font-weight: 500; }
+
+/* HYPOTHESIS */
+.hypo-list { border-top: 1px solid var(--rule); }
+.hypo-item { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--rule-soft); align-items: flex-start; }
+.hypo-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(32px, 3.5vw, 48px); color: var(--accent); line-height: 1; flex-shrink: 0; width: 52px; }
+.hypo-title { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.hypo-desc { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
+
+/* STRATEGY SECTION */
+.strategy-section { background: var(--bg-dark); color: var(--bg); padding: 120px 0; }
+.strategy-section .section-kicker { color: var(--accent); }
+.strategy-section .section-title { color: var(--bg); }
+.strategy-section .section-lead { color: rgba(242,239,231,.75); }
+
+.okr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(242,239,231,.15); border: 1px solid rgba(242,239,231,.15); margin-bottom: 56px; }
+.okr-cell { background: rgba(242,239,231,.04); padding: 32px 26px; }
+.okr-key { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(242,239,231,.45); margin-bottom: 8px; }
+.okr-baseline { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 500; letter-spacing: -0.02em; color: rgba(242,239,231,.5); line-height: 1; margin-bottom: 4px; }
+.okr-arrow { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--accent); margin: 8px 0; display: block; }
+.okr-target { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 500; letter-spacing: -0.03em; color: var(--bg); line-height: 1; margin-bottom: 6px; font-style: italic; }
+.okr-label { font-size: 14px; color: rgba(242,239,231,.6); line-height: 1.4; }
+
+.territories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(242,239,231,.15); border: 1px solid rgba(242,239,231,.15); margin-bottom: 56px; }
+.territory { background: rgba(242,239,231,.04); padding: 32px 28px; }
+.t-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 48px; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+.t-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em; }
+.t-desc { font-size: 14px; color: rgba(242,239,231,.6); line-height: 1.55; }
+.t-evidence { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-top: 12px; }
+
+.proposals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(242,239,231,.15); border: 1px solid rgba(242,239,231,.15); margin-bottom: 48px; }
+.prop-card { background: rgba(242,239,231,.04); padding: 28px 22px; }
+.prop-card.hl { background: rgba(210,55,30,.15); border-left: 3px solid var(--accent); }
+.prop-card.ch { background: rgba(0,119,170,.12); border-left: 3px solid var(--cyan); }
+.prop-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; color: rgba(242,239,231,.2); line-height: 1; margin-bottom: 8px; }
+.prop-card.hl .prop-num { color: rgba(210,55,30,.5); }
+.prop-card.ch .prop-num { color: rgba(0,119,170,.5); }
+.prop-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; color: var(--bg); margin-bottom: 8px; letter-spacing: -0.01em; }
+.prop-desc { font-size: 13px; color: rgba(242,239,231,.55); line-height: 1.6; }
+
+/* CLOSING */
+.closing { background: var(--bg-dark); color: var(--bg); padding: 160px 0; }
+.closing-q { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(36px, 5.5vw, 80px); line-height: 1.05; letter-spacing: -0.02em; max-width: 1100px; margin-bottom: 44px; }
+.closing-q .acc { color: var(--accent); }
+.closing-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(242,239,231,.4); margin-top: 96px; border-top: 1px solid rgba(242,239,231,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+/* ============ IMPRESO EXPANDIDO ============ */
+
+/* Volumen brutal del impreso */
+.volume-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule); margin-bottom: 56px; }
+.volume-cell { padding: 32px 26px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; }
+.volume-cell:last-child { border-right: none; }
+.volume-cell.bigger { background: var(--bg-dark); color: var(--bg); }
+.volume-cell.bigger .v-num { color: var(--accent); }
+.volume-cell.bigger .v-note { color: rgba(242,239,231,.6); }
+.volume-cell.bigger .v-tag { color: rgba(242,239,231,.4); }
+.v-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+.v-num { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(48px, 5.5vw, 76px); line-height: 0.9; letter-spacing: -0.04em; margin: 20px 0 6px; }
+.v-name { font-family: 'Fraunces', serif; font-style: italic; font-size: 18px; line-height: 1.25; margin-bottom: 8px; }
+.v-note { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+/* Secciones del impreso — bloques detallados */
+.section-block { padding: 64px 0; border-top: 1px solid var(--rule-soft); }
+.sb-head { display: flex; align-items: baseline; gap: 28px; flex-wrap: wrap; margin-bottom: 36px; }
+.sb-letter { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 120px); line-height: 0.85; color: var(--accent); letter-spacing: -0.04em; }
+.sb-name-block { flex: 1; min-width: 240px; }
+.sb-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 36px; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+.sb-desc { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); }
+.sb-volume { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink-2); }
+.sb-volume strong { color: var(--accent); font-weight: 500; font-style: normal; }
+
+.sb-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+.sb-stats { background: var(--bg-card); border: 1px solid var(--rule); padding: 28px 32px; }
+.sb-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); gap: 16px; }
+.sb-stat:last-child { border-bottom: none; }
+.sb-stat .l { font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; color: var(--ink-2); flex: 1; line-height: 1.35; }
+.sb-stat .v { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; text-align: right; }
+.sb-stat .v.warn { color: var(--accent); }
+.sb-stat .v.big { font-size: 22px; }
+.sb-stat .v.huge { font-size: 26px; font-family: 'Fraunces',serif; font-style: italic; color: var(--accent); }
+
+.sb-diagnosis { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(22px, 2.5vw, 28px); line-height: 1.3; color: var(--ink); margin-bottom: 24px; }
+.sb-diagnosis strong { color: var(--accent); font-weight: 500; font-style: normal; }
+.sb-bullets { list-style: none; padding: 0; margin: 0; }
+.sb-bullets li { padding: 11px 0; padding-left: 24px; position: relative; font-size: 15px; line-height: 1.55; color: var(--ink-2); border-bottom: 1px dashed var(--rule-soft); }
+.sb-bullets li:last-child { border-bottom: none; }
+.sb-bullets li::before { content: ""; position: absolute; left: 0; top: 21px; width: 12px; height: 1px; background: var(--accent); }
+.sb-bullets li strong { color: var(--ink); font-weight: 600; }
+
+/* Convenio comercial */
+.convenio-block { background: var(--bg-dark); color: var(--bg); padding: 64px 56px; margin: 48px 0; position: relative; overflow: hidden; }
+.convenio-block::before { content: "$"; position: absolute; right: -50px; top: -80px; font-family: 'Fraunces', serif; font-style: italic; font-size: 520px; color: rgba(210,55,30,.08); line-height: 1; pointer-events: none; font-weight: 500; }
+.convenio-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 24px; position: relative; }
+.convenio-head { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 40px; max-width: 920px; position: relative; }
+.convenio-head .acc { color: var(--accent); }
+.convenio-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(242,239,231,.15); border: 1px solid rgba(242,239,231,.15); margin-bottom: 40px; position: relative; }
+.convenio-org { background: rgba(242,239,231,.04); padding: 28px 18px; text-align: center; }
+.cv-name { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; margin-bottom: 12px; color: var(--bg); line-height: 1.2; }
+.cv-count { font-family: 'Fraunces', serif; font-weight: 500; font-size: 52px; color: var(--accent); line-height: 1; }
+.cv-unit { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(242,239,231,.5); margin-top: 8px; }
+
+.convenio-totals { display: flex; gap: 72px; align-items: baseline; flex-wrap: wrap; position: relative; padding-top: 32px; border-top: 1px solid rgba(242,239,231,.15); }
+.cv-total { display: flex; flex-direction: column; }
+.cv-tlab { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(242,239,231,.5); margin-bottom: 8px; }
+.cv-tval { font-family: 'Fraunces', serif; font-style: italic; font-size: 72px; font-weight: 500; color: var(--bg); letter-spacing: -0.03em; line-height: 1; }
+.cv-tval.acc { color: var(--accent); }
+.cv-tsub { font-size: 13px; color: rgba(242,239,231,.55); margin-top: 8px; max-width: 280px; line-height: 1.4; }
+
+/* Autores boletines tabla */
+.boletines-tabla { background: var(--bg-card); border: 1px solid var(--rule); margin: 32px 0; }
+.bt-row { display: grid; grid-template-columns: 1fr 100px 1.2fr; gap: 24px; padding: 16px 28px; border-bottom: 1px solid var(--rule-soft); align-items: center; }
+.bt-row:last-child { border-bottom: none; }
+.bt-row.header { background: var(--ink); color: var(--bg); border-bottom: none; }
+.bt-row.header > div { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bg) !important; }
+.bt-author { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+.bt-count { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--accent); text-align: center; }
+.bt-tag { font-size: 13px; color: var(--ink-2); }
+
+/* Cadena causal */
+.causal-chain { margin: 56px 0; padding: 48px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.cc-head { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; margin-bottom: 40px; text-align: center; color: var(--ink); }
+.cc-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+.cc-step { flex: 1; min-width: 200px; background: var(--bg-card); border: 1px solid var(--rule); padding: 24px 22px; position: relative; display: flex; flex-direction: column; justify-content: center; min-height: 140px; }
+.cc-step + .cc-step { margin-left: -1px; }
+.cc-step::after { content: "→"; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); font-family: 'IBM Plex Sans', sans-serif; font-size: 28px; color: var(--accent); background: var(--bg); padding: 0 4px; z-index: 2; font-weight: 300; }
+.cc-step:last-child::after { display: none; }
+.cc-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.12em; margin-bottom: 10px; }
+.cc-text { font-family: 'Fraunces', serif; font-size: 15px; line-height: 1.35; color: var(--ink); font-style: italic; }
+
+/* MANIFIESTO / SOLUCIÓN */
+.manifesto-section { background: var(--bg-dark); color: var(--bg); padding: 140px 0; border-top: none; }
+.manifesto-section .section-kicker { color: var(--accent); }
+.manifesto-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+.manifesto-eyebrow::before, .manifesto-eyebrow::after { content: ""; flex: 1; height: 1px; background: rgba(242,239,231,.15); max-width: 120px; }
+.manifesto-head { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: clamp(48px, 7.5vw, 112px); line-height: 0.98; letter-spacing: -0.03em; color: var(--bg); max-width: 1180px; margin-bottom: 56px; }
+.manifesto-head .acc { color: var(--accent); }
+.manifesto-lead { font-family: 'Fraunces', serif; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.45; color: rgba(242,239,231,.78); max-width: 920px; margin-bottom: 96px; }
+.manifesto-lead strong { color: var(--accent); font-weight: 500; font-style: italic; }
+
+.principles-list { border-top: 1px solid rgba(242,239,231,.15); margin-bottom: 96px; }
+.principle-item { padding: 48px 0; border-bottom: 1px solid rgba(242,239,231,.15); display: grid; grid-template-columns: 110px 1fr; gap: 48px; align-items: baseline; }
+.pr-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 64px; line-height: 0.85; color: var(--accent); letter-spacing: -0.03em; }
+.pr-body { display: flex; flex-direction: column; gap: 14px; }
+.pr-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.15; letter-spacing: -0.02em; color: var(--bg); font-style: italic; }
+.pr-desc { font-size: 17px; line-height: 1.6; color: rgba(242,239,231,.7); max-width: 800px; }
+.pr-desc strong { color: var(--accent); font-weight: 500; }
+
+/* Bloque apuesta narrativa */
+.bet-block { background: rgba(210,55,30,.1); border-left: 4px solid var(--accent); padding: 56px; margin: 80px 0; }
+.bet-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 28px; }
+.bet-text { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 3.8vw, 48px); line-height: 1.15; letter-spacing: -0.02em; color: var(--bg); }
+.bet-text .acc { color: var(--accent); }
+
+/* Responsivos para nuevos bloques */
+@media (max-width: 1024px) {
+  .volume-grid { grid-template-columns: repeat(2,1fr); }
+  .volume-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .sb-body { grid-template-columns: 1fr; gap: 32px; }
+  .convenio-flow { grid-template-columns: repeat(2,1fr); }
+  .cc-step::after { display: none; }
+  .cc-step { width: 100%; margin: -1px 0 0 0 !important; }
+}
+@media (max-width: 768px) {
+  .volume-grid { grid-template-columns: 1fr; }
+  .convenio-flow { grid-template-columns: 1fr; }
+  .convenio-block { padding: 40px 28px; }
+  .cv-tval { font-size: 52px; }
+  .principle-item { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+  .pr-num { font-size: 48px; }
+  .bet-block { padding: 36px 28px; }
+  .sb-head { gap: 16px; }
+  .sb-letter { font-size: 72px; }
+  .sb-name { font-size: 28px; }
+  .sb-stats { padding: 20px; }
+  .bt-row { grid-template-columns: 1fr 70px; gap: 12px; padding: 12px 16px; }
+  .bt-row .bt-tag { grid-column: 1 / -1; font-size: 12px; padding-top: 4px; }
+  .convenio-block::before { font-size: 320px; right: -30px; top: -40px; }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(0.22,1,0.36,1), transform .8s cubic-bezier(0.22,1,0.36,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stat-grid { grid-template-columns: repeat(2,1fr); }
+  .loyalty-grid { grid-template-columns: 1fr; gap: 40px; }
+  .insight-box { position: static; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .waste-grid { grid-template-columns: repeat(2,1fr); }
+  .okr-grid { grid-template-columns: repeat(2,1fr); }
+  .proposals-grid { grid-template-columns: repeat(2,1fr); }
+  .territories { grid-template-columns: 1fr; }
+  .loyalty-row { grid-template-columns: 90px 1fr 80px; }
+  .impreso-grid { grid-template-columns: 1fr; }
+  .genre-matrix { grid-template-columns: repeat(5,1fr); }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  section { padding: 64px 0; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .waste-grid { grid-template-columns: 1fr; }
+  .okr-grid { grid-template-columns: 1fr; }
+  .proposals-grid { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .impreso-grid { grid-template-columns: 1fr; }
+  .genre-matrix { grid-template-columns: repeat(3,1fr); }
+  .traffic-row { grid-template-columns: 1fr; gap: 12px; }
+  .piece-item { grid-template-columns: 60px 1fr; gap: 14px; }
+  .piece-meta { display: none; }
+  .pareto-row { grid-template-columns: 1fr; gap: 10px; }
+  .fact-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; }
+  .hypo-item { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="head-bar">
+  <div class="container head-bar-inner">
+    <div class="brand">Vanguardia MX · Diagnóstico Unificado</div>
+    <div class="head-meta">Digital + Impreso · Q1 2026 · Documento crítico</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker reveal">El espejo completo · Digital + Impreso + Estrategia</div>
+    <div class="hero-big-num reveal"><span>813+</span></div>
+    <h1 class="hero-headline reveal">
+      Piezas por semana en el impreso. <span class="accent">25,577</span> artículos digitales en el Q1. Y en todo ese volumen, una semana sin un solo reportaje, crónica o entrevista como género. El sistema produce. No construye lectores.
+    </h1>
+    <p class="hero-sub reveal">
+      Este es el diagnóstico integrado: la radiografía del impreso, la realidad del digital y la propuesta de transformación con datos verificados. Dos preguntas ordenan todo lo que sigue: ¿para qué producimos tanto? Y ¿para quién?
+    </p>
+  </div>
+</section>
+
+<!-- 01 · PANORAMA DIGITAL -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">01 · El panorama digital — Q1 2026</div>
+    <h2 class="section-title display reveal">7.99 millones de visitas.<br>161 piezas leídas a profundidad.</h2>
+    <p class="section-lead reveal">Cifras verificadas del periodo. Cada número está en el sistema. La lectura honesta de estos datos define todo lo que sigue.</p>
+
+    <div class="stat-grid reveal">
+      <div class="stat-cell"><div class="label">Usuarios únicos totales</div><div class="value">7.99 M</div><div class="note">Tráfico bruto del Q1. Incluye bots, accidentes y visitas únicas que jamás regresan.</div></div>
+      <div class="stat-cell"><div class="label">Artículos publicados Q1</div><div class="value">25,577</div><div class="note">≈ 171 piezas al día. 14 por hora en jornada de 12 h. Más producción que el año anterior. Menos audiencia.</div></div>
+      <div class="stat-cell"><div class="label">Leídas a profundidad</div><div class="value warn">161</div><div class="note">De las 5,000 piezas más leídas. Apenas el 3.2% supera 300 s y 35% de scroll.</div></div>
+      <div class="stat-cell"><div class="label">Caída YoY en usuarios</div><div class="value warn">−27.5%</div><div class="note">Con 7.7% más producción. Producir más del mismo contenido no detiene la caída.</div></div>
+      <div class="stat-cell"><div class="label">Caída YoY en pageviews</div><div class="value warn">−51.7%</div><div class="note">El canal que colapsa es Search (−46.9% YoY). El algoritmo de descubrimiento cambió. No regresará.</div></div>
+      <div class="stat-cell"><div class="label">RFV promedio global</div><div class="value">18.22</div><div class="note">Bajo 10 = tráfico de paso. Sobre 40 = núcleo fiel. El promedio del medio está en zona de tránsito.</div></div>
+      <div class="stat-cell"><div class="label">Scroll promedio</div><div class="value warn">24.64%</div><div class="note">Una cuarta parte de la página. El resto del contenido nunca se lee.</div></div>
+      <div class="stat-cell"><div class="label">Tráfico de bots</div><div class="value warn">7.93%</div><div class="note">634,504 usuarios desde Singapore, Finlandia, Rusia. &lt;30 s de duración. No son lectores.</div></div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>Producir <strong>7.7% más contenido</strong> en un periodo con <strong>27.5% menos audiencia</strong> no es un problema de esfuerzo. Es un problema de diseño del esfuerzo. El volumen ya no es la palanca. Nunca volvió a serlo después de que Google cambió su algoritmo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · PIRÁMIDE DE LEALTAD -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">02 · La pirámide invisible</div>
+    <h2 class="section-title display reveal">El 0.06% que sostiene el valor real.</h2>
+    <p class="section-lead reveal">La distribución de lealtad es brutalmente desigual. Y casi nunca hablamos de los segmentos que de verdad importan para el negocio.</p>
+
+    <div class="loyalty-grid">
+      <div class="reveal">
+        <div class="loyalty-row"><div class="loyalty-name">New</div><div><div class="loyalty-bar new" style="width:100%;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">40.35%</div><div class="loyalty-value">7,365,119</div></div>
+        <div class="loyalty-row"><div class="loyalty-name">Fly by</div><div><div class="loyalty-bar fly" style="width:17%;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">7.03%</div><div class="loyalty-value">1,282,343</div></div>
+        <div class="loyalty-row"><div class="loyalty-name">Won back</div><div><div class="loyalty-bar fly" style="width:12%;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">4.91%</div><div class="loyalty-value">897,023</div></div>
+        <div class="loyalty-row"><div class="loyalty-name">Casual</div><div><div class="loyalty-bar fly" style="width:8%;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">3.27%</div><div class="loyalty-value">596,869</div></div>
+        <div class="loyalty-row"><div class="loyalty-name red">Loyal</div><div><div class="loyalty-bar loyal" style="width:1.5%;min-width:8px;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">0.26%</div><div class="loyalty-value">48,268</div></div>
+        <div class="loyalty-row"><div class="loyalty-name red">Lover</div><div><div class="loyalty-bar lover" style="width:0.5%;min-width:5px;height:34px;border-radius:2px"></div></div><div class="loyalty-pct">0.06%</div><div class="loyalty-value">10,320</div></div>
+      </div>
+
+      <div class="insight-box reveal">
+        <h3>Un Lover lee como 219 visitantes nuevos juntos.</h3>
+        <p style="color:var(--ink-2);font-size:15px;margin-bottom:12px;">Equivalencias medidas en tiempo y engagement real:</p>
+        <div class="eq-row"><div class="eq-num">×219</div><div class="eq-text"><strong>1 Lover = 219 New</strong> en duración total de lectura</div></div>
+        <div class="eq-row"><div class="eq-num">×211</div><div class="eq-text"><strong>1 Lover = 211 New</strong> en engagement activo</div></div>
+        <div class="eq-row"><div class="eq-num">×185</div><div class="eq-text"><strong>1 Lover = 185 New</strong> en páginas vistas</div></div>
+        <p style="color:var(--ink);font-size:17px;margin-top:20px;font-family:'Fraunces',serif;font-style:italic;line-height:1.35;">58,588 personas (Loyal + Lover) generan el 18.84% de todos los pageviews. Son el 0.73% del tráfico. Son el negocio real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · TRÁFICO -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">03 · Los canales reales</div>
+    <h2 class="section-title display reveal">Quien teclea el dominio se queda <em class="display-italic" style="color:var(--accent)">18.8 minutos</em>.<br>Quien viene de Google, <em class="display-italic" style="color:var(--accent)">4 minutos</em>.</h2>
+    <p class="section-lead reveal">Cinco canales producen el tráfico. Solo dos producen lectores reales. Los que crecen quieren periodismo de profundidad.</p>
+
+    <div class="reveal">
+      <div class="traffic-row">
+        <div class="traffic-name">Search<span class="sub">Google y otros buscadores</span></div>
+        <div class="traffic-bar-wrap"><div class="traffic-bar" style="width:100%"></div></div>
+        <div class="traffic-metrics"><div class="tm"><span class="l">Usuarios</span><span class="v">4.61 M</span></div><div class="tm"><span class="l">RFV</span><span class="v">9.15</span></div><div class="tm"><span class="l">Δ YoY</span><span class="v" style="color:var(--accent)">−46.9%</span></div></div>
+      </div>
+      <div class="traffic-row">
+        <div class="traffic-name">Social<span class="sub">Facebook, X, IG, TikTok</span></div>
+        <div class="traffic-bar-wrap"><div class="traffic-bar" style="width:63%"></div></div>
+        <div class="traffic-metrics"><div class="tm"><span class="l">Usuarios</span><span class="v">2.91 M</span></div><div class="tm"><span class="l">RFV</span><span class="v">13.48</span></div><div class="tm"><span class="l">Δ YoY</span><span class="v" style="color:var(--positive)">+21.8%</span></div></div>
+      </div>
+      <div class="traffic-row hl">
+        <div class="traffic-name">Directo<span class="sub">Teclan el dominio o marcador</span></div>
+        <div class="traffic-bar-wrap"><div class="traffic-bar strong" style="width:8%;min-width:28px"></div></div>
+        <div class="traffic-metrics"><div class="tm"><span class="l">Usuarios</span><span class="v">350,989</span></div><div class="tm"><span class="l">RFV</span><span class="v big">56.44</span></div><div class="tm"><span class="l">Δ YoY</span><span class="v big">+108.1%</span></div></div>
+      </div>
+      <div class="traffic-row hl">
+        <div class="traffic-name">IA<span class="sub">ChatGPT, Perplexity, Gemini</span></div>
+        <div class="traffic-bar-wrap"><div class="traffic-bar strong" style="width:1.5%;min-width:14px"></div></div>
+        <div class="traffic-metrics"><div class="tm"><span class="l">Usuarios</span><span class="v">55,093</span></div><div class="tm"><span class="l">RFV</span><span class="v">5.56</span></div><div class="tm"><span class="l">Δ YoY</span><span class="v big">+193.8%</span></div></div>
+      </div>
+      <div class="traffic-row hl">
+        <div class="traffic-name">Email<span class="sub">Newsletters directos</span></div>
+        <div class="traffic-bar-wrap"><div class="traffic-bar strong" style="width:0.3%;min-width:8px"></div></div>
+        <div class="traffic-metrics"><div class="tm"><span class="l">Usuarios</span><span class="v">8,939</span></div><div class="tm"><span class="l">RFV</span><span class="v big">35.93</span></div><div class="tm"><span class="l">Duración</span><span class="v big">935 s</span></div></div>
+      </div>
+    </div>
+
+    <div class="alert-box reveal" style="margin-top:40px;">
+      <p>Search es 13.1× más grande que directo. Pero directo genera lectores que duran <strong>4.7× más tiempo</strong> y tienen <strong>RFV 6.2× mayor</strong>. Los tres canales que crecen (directo +108%, IA +194%, social +22%) comparten un rasgo: el usuario llega por intención, no por algoritmo masivo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · PARETO -->
+<section class="pareto-section">
+  <div class="container">
+    <div class="section-kicker reveal">04 · La concentración extrema</div>
+    <h2 class="section-title display reveal">50 piezas generan el <em class="display-italic" style="color:var(--accent)">58%</em> de todos los usuarios.</h2>
+    <p class="section-lead reveal">Las 25,577 piezas no compiten en pie de igualdad. Una minoría minúscula concentra toda la atención. El resto es flujo que mide poco y dura menos.</p>
+
+    <div class="reveal">
+      <div class="pareto-row"><div class="pareto-label">Top 1%<span class="sub">50 piezas</span></div><div class="pareto-track"><div class="pareto-fill" style="width:57.81%"></div></div><div class="pareto-result">57.81%</div></div>
+      <div class="pareto-row"><div class="pareto-label">Top 5%<span class="sub">250 piezas</span></div><div class="pareto-track"><div class="pareto-fill" style="width:69.55%"></div></div><div class="pareto-result">69.55%</div></div>
+      <div class="pareto-row"><div class="pareto-label">Top 10%<span class="sub">500 piezas</span></div><div class="pareto-track"><div class="pareto-fill" style="width:75.64%"></div></div><div class="pareto-result">75.64%</div></div>
+      <div class="pareto-row"><div class="pareto-label">Top 20%<span class="sub">1,000 piezas</span></div><div class="pareto-track"><div class="pareto-fill" style="width:82.38%"></div></div><div class="pareto-result">82.38%</div></div>
+      <div class="pareto-row"><div class="pareto-label">Top 50%<span class="sub">2,500 piezas</span></div><div class="pareto-track"><div class="pareto-fill" style="width:93.20%"></div></div><div class="pareto-result">93.20%</div></div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(22px,2.5vw,32px);line-height:1.3;max-width:800px;margin-top:72px;color:rgba(242,239,231,.9);" class="reveal">
+      Producir 25,577 piezas para que sólo 50 generen el 58% del tráfico no es estrategia editorial. Es desperdicio estructural.
+    </p>
+  </div>
+</section>
+
+<!-- 05 · LA CALIDAD DE LO QUE SE PUBLICA -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">05 · La realidad de lo que publicamos</div>
+    <h2 class="section-title display reveal">De cada 100 piezas, sólo 3 se leen completas.</h2>
+    <p class="section-lead reveal">Tomamos las 5,000 URLs más leídas. Las clasificamos por comportamiento real. El resultado obliga a repensar qué significa producir.</p>
+
+    <div class="waste-grid reveal">
+      <div class="waste-cell warn">
+        <div><div class="waste-pct">3.2<span class="waste-sign">%</span></div><div class="waste-label">Lectura profunda</div></div>
+        <div class="waste-note">Solo 161 piezas superan 300 s y 35% de scroll. Son las que construyen lectores.</div>
+      </div>
+      <div class="waste-cell">
+        <div><div class="waste-pct">17.7<span class="waste-sign">%</span></div><div class="waste-label">Lectura efectiva</div></div>
+        <div class="waste-note">886 piezas con al menos 3 minutos y 25% de scroll. Aceptable, no notable.</div>
+      </div>
+      <div class="waste-cell pos">
+        <div><div class="waste-pct">40.5<span class="waste-sign">%</span></div><div class="waste-label">Fidelizan cuando se leen</div></div>
+        <div class="waste-note">2,024 piezas con RFV mayor a 25. Cuando alguien las encuentra, regresa. La buena noticia escondida.</div>
+      </div>
+      <div class="waste-cell warn">
+        <div><div class="waste-pct">3.5<span class="waste-sign">%</span></div><div class="waste-label">Clickbait puro</div></div>
+        <div class="waste-note">176 piezas con duración &lt;120 s y RFV &lt;5. Cubren el servidor. Envenenan la marca.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · SEMANARIO VS INFORMACIÓN -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">06 · La prueba ya está dentro de casa</div>
+    <h2 class="section-title display reveal">El Semanario, con 16 piezas, supera al resto del medio.</h2>
+    <p class="section-lead reveal">No es teoría. La sección con menos producción tiene la mayor eficiencia editorial del medio. Compárese contra Información, la sección masiva.</p>
+
+    <div class="compare-grid reveal">
+      <div class="compare-side">
+        <div class="compare-name">Sección Información</div>
+        <div class="compare-h">Volumen industrial.<br>Lectura superficial.</div>
+        <div class="compare-stats">
+          <div class="cs"><div class="l">Piezas publicadas</div><div class="v">1,004</div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">Usuarios sumados</div><div class="v">3.27<span class="u">M</span></div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">RFV promedio</div><div class="v">7.16</div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">Duración promedio</div><div class="v">212<span class="u">s</span></div></div>
+        </div>
+      </div>
+      <div class="compare-side winner">
+        <div class="compare-name">Sección Semanario</div>
+        <div class="compare-h">16 piezas narrativas.<br>Construyen lectores.</div>
+        <div class="compare-stats">
+          <div class="cs"><div class="l">Piezas publicadas</div><div class="v">16</div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">Usuarios sumados</div><div class="v">35,155</div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">RFV promedio</div><div class="v">22.99</div></div>
+          <div class="c-rule"></div>
+          <div class="cs"><div class="l">Duración promedio</div><div class="v">338<span class="u">s</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ratio-box reveal">
+      <div class="ratio-num">50,513</div>
+      <div class="ratio-text">Eficiencia editorial del Semanario (RFV × usuarios ÷ piezas). La de Información es <strong style="color:var(--accent)">23,341</strong>. El Semanario produce el 1.6% de las piezas y es más del doble de eficiente construyendo lectores reales.</div>
+    </div>
+
+    <h3 class="reveal" style="font-family:'Fraunces',serif;font-size:28px;margin-bottom:28px;font-style:italic;">Las 10 piezas narrativas que ya funcionan</h3>
+    <div class="pieces-list reveal">
+      <div class="piece-item"><div class="piece-rank">01</div><div class="piece-title">Hércules: un pueblo que va quedando solo</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">7,654</span></div><div class="pm"><span class="l">Duración</span><span class="v">5:30</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">17.2</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">02</div><div class="piece-title">Un migrante deportado regresa a casa 35 años después</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">2,249</span></div><div class="pm"><span class="l">Duración</span><span class="v">7:00</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">35.7</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">03</div><div class="piece-title">Después de medio siglo, extranjero busca entre memorias de Saltillo</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">4,487</span></div><div class="pm"><span class="l">Scroll</span><span class="v acc">42.4%</span></div><div class="pm"><span class="l">RFV</span><span class="v">12.8</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">04</div><div class="piece-title">La leyenda del profesor Berrueto</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,928</span></div><div class="pm"><span class="l">Duración</span><span class="v">7:12</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">30.3</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">05</div><div class="piece-title">El costo social del colapso de AHMSA</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,807</span></div><div class="pm"><span class="l">Duración</span><span class="v">5:01</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">28.5</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">06</div><div class="piece-title">Las vulkas de un pueblo atendidas por sordomudos</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,236</span></div><div class="pm"><span class="l">Duración</span><span class="v">6:21</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">45.0</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">07</div><div class="piece-title">Voces de Allende: a 15 años del terror</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,154</span></div><div class="pm"><span class="l">Duración</span><span class="v">8:45</span></div><div class="pm"><span class="l">Scroll</span><span class="v acc">42.9%</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">08</div><div class="piece-title">Pinocho, el hombre que cuida un arroyo por mandato divino</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,552</span></div><div class="pm"><span class="l">Duración</span><span class="v">4:10</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">39.5</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">09</div><div class="piece-title">Los rostros de la crisis de agua en Torreón</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,979</span></div><div class="pm"><span class="l">Duración</span><span class="v">3:30</span></div><div class="pm"><span class="l">RFV</span><span class="v">15.9</span></div></div></div>
+      <div class="piece-item"><div class="piece-rank">10</div><div class="piece-title">Los huesos hablan: Pasta de Conchos 20 años después</div><div class="piece-meta"><div class="pm"><span class="l">Usuarios</span><span class="v">1,136</span></div><div class="pm"><span class="l">Duración</span><span class="v">4:01</span></div><div class="pm"><span class="l">RFV</span><span class="v acc">34.8</span></div></div></div>
+    </div>
+
+    <div class="alert-box reveal" style="margin-top:48px;">
+      <p>Patrón común en las 10 piezas: <strong>historia con sujeto, lugar específico, voz reconocible, tiempo de reportería</strong>. Todas tienen RFV por encima del promedio del medio (18.22). Todas se leen más de 3 minutos. Todas construyen lectores que regresan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · IMPRESO — EL VOLUMEN BRUTAL -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">07 · El impreso — la otra mitad del problema</div>
+    <h2 class="section-title display reveal">3,252 piezas al mes.<br>Cero reportajes. Cero crónicas. Cero entrevistas.</h2>
+    <p class="section-lead reveal">Lo que el digital ya señalaba, el impreso lo confirma con escalofriante consistencia. Análisis exhaustivo de cinco secciones —A, Mi Ciudad, Extremo, VMás y Opinión— durante la semana del 1 al 7 de marzo de 2026. El sistema no está roto por falta de trabajo. Está tensionado por la forma en que ese trabajo se organiza.</p>
+
+    <div class="volume-grid reveal">
+      <div class="volume-cell">
+        <div class="v-tag">Semanal</div>
+        <div>
+          <div class="v-num">813</div>
+          <div class="v-name">piezas publicadas</div>
+          <div class="v-note">Solo en A, Mi Ciudad, Extremo y VMás. Sin contar Opinión dominical.</div>
+        </div>
+      </div>
+      <div class="volume-cell bigger">
+        <div class="v-tag">Mensual</div>
+        <div>
+          <div class="v-num">3,252</div>
+          <div class="v-name">piezas al mes</div>
+          <div class="v-note">A esto se le suman convenios mensuales y la operación digital. Capacidad operativa real del medio.</div>
+        </div>
+      </div>
+      <div class="volume-cell">
+        <div class="v-tag">Géneros narrativos</div>
+        <div>
+          <div class="v-num" style="color:var(--accent)">0</div>
+          <div class="v-name">en toda la semana</div>
+          <div class="v-note">Cero reportajes. Cero crónicas. Cero entrevistas como género. En las cinco secciones analizadas.</div>
+        </div>
+      </div>
+      <div class="volume-cell">
+        <div class="v-tag">Boletines / mes</div>
+        <div>
+          <div class="v-num" style="color:var(--accent)">110+</div>
+          <div class="v-name">por convenio comercial</div>
+          <div class="v-note">29 Saltillo · 61 Torreón · 4 Sabinas · 8 Acuña · 8 Congreso. Lo que se PAGA por publicar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>El impreso no opera solamente como producto editorial: <strong>opera como sistema híbrido</strong> donde convergen tres lógicas —periodística, comercial e industrial— que no están claramente separadas. Esa mezcla genera apariencia de completitud, pero no necesariamente densidad editorial. La pregunta no es <em>por qué falta mejor contenido</em>. Es: <em>qué tipo de sistema produce consistentemente este tipo de contenido</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07.1 · SECCIÓN POR SECCIÓN -->
+<section style="padding-top:64px;">
+  <div class="container">
+    <div class="section-kicker reveal">07.1 · Las cinco radiografías</div>
+    <h2 class="section-title display reveal">Sección por sección, el mismo patrón.</h2>
+    <p class="section-lead reveal">Cada una tiene su tono, su agenda, su densidad. Pero al cruzar los datos, la enfermedad es transversal: alto volumen, baja profundidad, opacidad de origen, y dependencia estructural de flujos externos. Cinco diagnósticos, una sola arquitectura.</p>
+
+    <!-- SECCIÓN A -->
+    <div class="section-block reveal" style="border-top:none;">
+      <div class="sb-head">
+        <div class="sb-letter">A</div>
+        <div class="sb-name-block">
+          <div class="sb-name">Sección A</div>
+          <div class="sb-desc">Hard news · Política · Internacional · Opinión diaria</div>
+        </div>
+        <div class="sb-volume">373 piezas · <strong>68 llamados</strong> de portada</div>
+      </div>
+      <div class="sb-body">
+        <div>
+          <div class="sb-diagnosis">"Sistema eficiente para flujo informativo, pero <strong>débil en contenido distintivo</strong>. Alta densidad, baja diferenciación."</div>
+          <ul class="sb-bullets">
+            <li><strong>Composición:</strong> 221 notas, 87 columnas, 11 artículos (todos de agencia), 6 editoriales.</li>
+            <li><strong>Ausencia total</strong> de reportaje, crónica y entrevista como género autónomo.</li>
+            <li>Los 11 artículos —apenas 3.38% del contenido— provienen <strong>todos de agencia</strong>. La profundidad relativa es externa.</li>
+            <li>Portada funciona como <strong>redistribuidor</strong> de contenidos, no como espacio editorial fuerte.</li>
+            <li>Predominio de <strong>agenda nacional e internacional</strong>. Lo local no estructura la sección.</li>
+            <li>Detectado: <strong>contenido patrocinado sin señalización clara</strong> que imita el estilo editorial.</li>
+            <li>87 columnas concentran identidad en voces reconocibles, pero <strong>limitan diversidad narrativa</strong>.</li>
+          </ul>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><span class="l">Total piezas editoriales</span><span class="v">373</span></div>
+          <div class="sb-stat"><span class="l">Llamados de portada</span><span class="v">68</span></div>
+          <div class="sb-stat"><span class="l">Notas</span><span class="v">221</span></div>
+          <div class="sb-stat"><span class="l">Columnas</span><span class="v">87</span></div>
+          <div class="sb-stat"><span class="l">Artículos (todos de agencia)</span><span class="v warn">11</span></div>
+          <div class="sb-stat"><span class="l">Editoriales</span><span class="v">6</span></div>
+          <div class="sb-stat"><span class="l">Reportajes</span><span class="v warn huge">0</span></div>
+          <div class="sb-stat"><span class="l">Crónicas</span><span class="v warn huge">0</span></div>
+          <div class="sb-stat"><span class="l">Entrevistas (género)</span><span class="v warn huge">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MI CIUDAD -->
+    <div class="section-block reveal">
+      <div class="sb-head">
+        <div class="sb-letter">B</div>
+        <div class="sb-name-block">
+          <div class="sb-name">Mi Ciudad</div>
+          <div class="sb-desc">Local · Saltillo y región · Seguridad · Gobierno · Movilidad</div>
+        </div>
+        <div class="sb-volume">231 piezas · <strong>18 personas</strong> en el equipo</div>
+      </div>
+      <div class="sb-body">
+        <div>
+          <div class="sb-diagnosis">"La sección donde <strong>mejor se ve el conflicto estructural</strong> entre producto periodístico y arquitectura comercial. La agenda oficial no es influencia: es condición de funcionamiento."</div>
+          <ul class="sb-bullets">
+            <li><strong>158 notas + 91 boletines.</strong> El 40% del material es comunicado oficial reescrito.</li>
+            <li>Periodismo original estimado: <strong>100–120 piezas</strong> reales en la semana. El resto, flujo institucional.</li>
+            <li>Equipo de 18 personas (jefe info, 7 reporteros, 4 editores, 3 corresponsales, 3 Guardián). <strong>Alta producción, bajo rendimiento diferencial.</strong></li>
+            <li>Boletines firmados por reporteros y editores <strong>sin atribución clara del origen oficial</strong>. Tratamiento favorable a entidades emisoras.</li>
+            <li>Núcleo informativo concentrado en 1B, 2B, 4B, 6B, 7B. Sin jerarquía clara: <strong>solo acumulación</strong>.</li>
+            <li>Tres ejes dominantes: seguridad/accidentes (≈25), gobierno municipal (≈19), movilidad (≈15).</li>
+            <li><strong>Cero crónicas. Cero reportajes. Cero entrevistas. Cero columnas locales. Cero narrativa.</strong></li>
+            <li>La ciudad aparece <strong>filtrada por lo oficial</strong>, no por sus conflictos o dinámicas sociales.</li>
+          </ul>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><span class="l">Total piezas</span><span class="v">231</span></div>
+          <div class="sb-stat"><span class="l">Notas reales</span><span class="v">158</span></div>
+          <div class="sb-stat"><span class="l">Boletines institucionales</span><span class="v warn huge">91</span></div>
+          <div class="sb-stat"><span class="l">% dependencia de oficial</span><span class="v warn">~50%</span></div>
+          <div class="sb-stat"><span class="l">Promedio piezas / día</span><span class="v">33</span></div>
+          <div class="sb-stat"><span class="l">Promedio piezas / página</span><span class="v">4–5</span></div>
+          <div class="sb-stat"><span class="l">Equipo</span><span class="v">18</span></div>
+          <div class="sb-stat"><span class="l">Géneros narrativos presentes</span><span class="v warn huge">0</span></div>
+        </div>
+      </div>
+
+      <h4 style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;margin-top:48px;margin-bottom:20px;">Los autores con más boletines firmados</h4>
+      <p style="font-size:15px;color:var(--ink-2);margin-bottom:8px;">El conflicto: estos boletines se firman como notas propias, no aluden al boletín como fuente, no incluyen más de una fuente, y son pro partido (cualquier partido).</p>
+      <div class="boletines-tabla">
+        <div class="bt-row header"><div>Autor</div><div style="text-align:center;">Boletines</div><div>Observación</div></div>
+        <div class="bt-row"><div class="bt-author">Gerardo Hernández</div><div class="bt-count">25</div><div class="bt-tag">Alta concentración en reescritura institucional</div></div>
+        <div class="bt-row"><div class="bt-author">Apolonio Alvarado</div><div class="bt-count">23</div><div class="bt-tag">Rutina de reescritura sistemática detectada</div></div>
+        <div class="bt-row"><div class="bt-author">Elena Vega</div><div class="bt-count">10</div><div class="bt-tag">Mayoría en circuito cultural / local</div></div>
+        <div class="bt-row"><div class="bt-author">Josué Rodríguez</div><div class="bt-count">7</div><div class="bt-tag">Volumen medio</div></div>
+        <div class="bt-row"><div class="bt-author">Lidiet Mexicano</div><div class="bt-count">6</div><div class="bt-tag">Volumen medio</div></div>
+      </div>
+    </div>
+
+    <!-- EXTREMO -->
+    <div class="section-block reveal">
+      <div class="sb-head">
+        <div class="sb-letter">C</div>
+        <div class="sb-name-block">
+          <div class="sb-name">Extremo</div>
+          <div class="sb-desc">Deportes · 4 páginas diarias · Operada por 2 personas</div>
+        </div>
+        <div class="sb-volume">104 piezas · <strong>100% notas</strong> · 0% variación de género</div>
+      </div>
+      <div class="sb-body">
+        <div>
+          <div class="sb-diagnosis">"Sección diseñada para <strong>eficiencia operativa y volumen</strong>, no para valor editorial. Cambia el tema, no la forma."</div>
+          <ul class="sb-bullets">
+            <li><strong>Una persona</strong> en un día: 12 notas + cierre de impreso + publicación web. Carga insostenible.</li>
+            <li>Alejandro Morteo: 46 piezas. Corín Zúñiga: 23. <strong>~30 piezas sin autoría identificada (30% del total)</strong>.</li>
+            <li>Se estima que <strong>36–40 de las 94 notas provienen de agencia</strong>. Solo 2 lo explicitan.</li>
+            <li>100% del contenido escrito es nota. <strong>Cero artículos, crónicas, entrevistas, columnas o cualquier otro género.</strong></li>
+            <li>Más del <strong>50% del contenido es fútbol</strong> (53 piezas) en una ciudad sin equipo profesional.</li>
+            <li>15 piezas sobre Mundial 2026 (industria, logística, negocio). Agenda externa domina portada, lo local relegado a páginas 3–4.</li>
+            <li>Detectado: <strong>contenido patrocinado sin etiquetar</strong> que imita el estilo editorial.</li>
+            <li>Página 2 saturada · Página 3 subutilizada. Lógica de acumulación, no de narrativa.</li>
+          </ul>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><span class="l">Total contenidos</span><span class="v">104</span></div>
+          <div class="sb-stat"><span class="l">Notas</span><span class="v">94</span></div>
+          <div class="sb-stat"><span class="l">Fotonotas</span><span class="v">7</span></div>
+          <div class="sb-stat"><span class="l">% sin autoría identificada</span><span class="v warn huge">30%</span></div>
+          <div class="sb-stat"><span class="l">Promedio piezas / día</span><span class="v">14–15</span></div>
+          <div class="sb-stat"><span class="l">% contenido sobre fútbol</span><span class="v warn">+50%</span></div>
+          <div class="sb-stat"><span class="l">Géneros narrativos</span><span class="v warn huge">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VMÁS -->
+    <div class="section-block reveal">
+      <div class="sb-head">
+        <div class="sb-letter">D</div>
+        <div class="sb-name-block">
+          <div class="sb-name">VMás</div>
+          <div class="sb-desc">Cultura · Entretenimiento · Bienestar · Servicios</div>
+        </div>
+        <div class="sb-volume">106 contenidos · <strong>menos de 20</strong> piezas editoriales reales / día</div>
+      </div>
+      <div class="sb-body">
+        <div>
+          <div class="sb-diagnosis">"Sección más diversa en formatos, pero <strong>con identidad diluida</strong>. Su problema no es la falta de variedad: es la falta de dirección."</div>
+          <ul class="sb-bullets">
+            <li>Formato de 8 páginas, <strong>solo 4–5 con contenido editorial real</strong>. El resto: clasificados, juegos, "Guía del buen comer".</li>
+            <li>76 notas, 11 columnas, 8 artículos, 7 fotonotas, 4 recomendaciones, 4 gráficos, 1 reseña, 1 receta.</li>
+            <li>De las 76 notas, <strong>al menos 38 presentan indicios de agencia o boletín</strong>. Pero no se señala.</li>
+            <li>Mezcla de funciones: entretenimiento, farándula, cultura, bienestar, gastronomía, servicios, pasatiempos, clasificados.</li>
+            <li><strong>Solo 7.1% de los títulos</strong> mencionan marcadores locales explícitos (Saltillo, UAdeC, MARCO, etc.).</li>
+            <li>Concentración en página 2: columnas, fotonotas, listas, gráficos, notas. <strong>Saturación que afecta legibilidad</strong>.</li>
+            <li>Artículos tipo evergreen, sin vinculación al contexto local. Tono Gen Z para una audiencia impresa de 50–70 años.</li>
+            <li><strong>Ausencia crítica:</strong> entrevistas a profundidad, crítica cultural, ensayo, curaduría sólida, piezas largas.</li>
+          </ul>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><span class="l">Total contenidos</span><span class="v">106</span></div>
+          <div class="sb-stat"><span class="l">Notas</span><span class="v">76</span></div>
+          <div class="sb-stat"><span class="l">Columnas</span><span class="v">11</span></div>
+          <div class="sb-stat"><span class="l">Artículos</span><span class="v">8</span></div>
+          <div class="sb-stat"><span class="l">Notas con indicios de agencia/boletín</span><span class="v warn">38</span></div>
+          <div class="sb-stat"><span class="l">% títulos con marcador local</span><span class="v warn huge">7.1%</span></div>
+          <div class="sb-stat"><span class="l">Páginas con contenido real</span><span class="v">4–5 / 8</span></div>
+          <div class="sb-stat"><span class="l">Géneros de profundidad</span><span class="v warn huge">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPINIÓN -->
+    <div class="section-block reveal">
+      <div class="sb-head">
+        <div class="sb-letter">E</div>
+        <div class="sb-name-block">
+          <div class="sb-name">Opinión dominical</div>
+          <div class="sb-desc">Encartada los domingos · Resto de la semana integrada en A</div>
+        </div>
+        <div class="sb-volume">Alta calidad de columnistas · <strong>previsible</strong> en formato</div>
+      </div>
+      <div class="sb-body">
+        <div>
+          <div class="sb-diagnosis">"Conserva legitimidad simbólica, pero hoy parece <strong>más una reserva de tradición</strong> que un motor de renovación intelectual del producto."</div>
+          <ul class="sb-bullets">
+            <li>Alta densidad de columnas en una sola edición semanal. <strong>Saturación discursiva</strong>.</li>
+            <li>Predominio de textos argumentativos breves o medianos. <strong>Homogeneidad formal extrema</strong>.</li>
+            <li><strong>No hay mecanismos de contraste</strong>, diálogo o debate entre voces. Opera como suma, no como conversación.</li>
+            <li>Concentración temática en agenda nacional. Baja presencia de temas locales o culturales.</li>
+            <li><strong>Sin jerarquización interna clara.</strong> Sin innovación formal. Sin formatos híbridos.</li>
+            <li>Potencial subutilizado: podría ser espacio de análisis, profundidad, contrapunto y reflexión.</li>
+            <li><strong>No compensa</strong> las debilidades del resto del producto. No construye conversación pública.</li>
+            <li>Se percibe estable y reconocible, pero también <strong>previsible y algo inmóvil</strong>.</li>
+          </ul>
+        </div>
+        <div class="sb-stats">
+          <div class="sb-stat"><span class="l">Cadencia</span><span class="v">1 / semana</span></div>
+          <div class="sb-stat"><span class="l">Predominio formal</span><span class="v">Columna</span></div>
+          <div class="sb-stat"><span class="l">Ensayo / debate / híbrido</span><span class="v warn huge">0</span></div>
+          <div class="sb-stat"><span class="l">Mecanismos de contrapunto</span><span class="v warn huge">0</span></div>
+          <div class="sb-stat"><span class="l">Calidad de firmas</span><span class="v" style="color:var(--positive)">Alta</span></div>
+          <div class="sb-stat"><span class="l">Espacio aprovechado</span><span class="v warn">Bajo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07.2 · EL CONVENIO QUE DISTORSIONA -->
+<section style="padding-top:48px;">
+  <div class="container">
+    <div class="convenio-block reveal">
+      <div class="convenio-tag">07.2 · El dato que cambia la lectura</div>
+      <div class="convenio-head">El impreso recibe <span class="acc">110 boletines mensuales</span> bajo convenio comercial pagado.<br>Mi Ciudad no es solo una sección débil: es estructuralmente una <span class="acc">válvula de cumplimiento</span>.</div>
+
+      <div class="convenio-flow">
+        <div class="convenio-org">
+          <div class="cv-name">Torreón</div>
+          <div class="cv-count">61</div>
+          <div class="cv-unit">boletines / mes</div>
+        </div>
+        <div class="convenio-org">
+          <div class="cv-name">Saltillo</div>
+          <div class="cv-count">29</div>
+          <div class="cv-unit">boletines / mes</div>
+        </div>
+        <div class="convenio-org">
+          <div class="cv-name">Acuña</div>
+          <div class="cv-count">8</div>
+          <div class="cv-unit">boletines / mes</div>
+        </div>
+        <div class="convenio-org">
+          <div class="cv-name">Congreso del Estado</div>
+          <div class="cv-count">8</div>
+          <div class="cv-unit">boletines / mes</div>
+        </div>
+        <div class="convenio-org">
+          <div class="cv-name">Sabinas + S. Juan</div>
+          <div class="cv-count">4</div>
+          <div class="cv-unit">boletines / mes</div>
+        </div>
+      </div>
+
+      <div class="convenio-totals">
+        <div class="cv-total">
+          <div class="cv-tlab">Mínimo bajo convenio</div>
+          <div class="cv-tval acc">110</div>
+          <div class="cv-tsub">por mes, sin contar boletines fuera del esquema</div>
+        </div>
+        <div class="cv-total">
+          <div class="cv-tlab">Boletines / semana solo en Mi Ciudad</div>
+          <div class="cv-tval">91</div>
+          <div class="cv-tsub">de 231 piezas totales = <strong style="color:var(--accent)">39%</strong> de la sección</div>
+        </div>
+        <div class="cv-total">
+          <div class="cv-tlab">Lo que erosiona</div>
+          <div class="cv-tval">$</div>
+          <div class="cv-tsub">los boletines sostienen ingreso de corto plazo, pero <strong style="color:var(--accent)">debilitan el diferencial</strong> que el impreso necesita para justificar su existencia frente al lector</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07.3 · CADENA CAUSAL -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-kicker reveal">07.3 · La cadena causal</div>
+    <h2 class="section-title display reveal">Por qué el sistema produce, una y otra vez, este tipo de contenido.</h2>
+    <p class="section-lead reveal">No es accidental. No es falta de talento. No es problema de una semana. Cada peldaño explica el siguiente. Y juntos explican el todo.</p>
+
+    <div class="causal-chain reveal">
+      <div class="cc-flow">
+        <div class="cc-step"><div class="cc-num">01</div><div class="cc-text">Mayor presión de publicación de materiales externos o institucionales</div></div>
+        <div class="cc-step"><div class="cc-num">02</div><div class="cc-text">Menor espacio disponible para periodismo original</div></div>
+        <div class="cc-step"><div class="cc-num">03</div><div class="cc-text">Mayor necesidad de llenar con piezas breves y reproducibles</div></div>
+        <div class="cc-step"><div class="cc-num">04</div><div class="cc-text">Menor diferenciación editorial</div></div>
+        <div class="cc-step"><div class="cc-num">05</div><div class="cc-text">Menor claridad del valor que el impreso ofrece</div></div>
+      </div>
+    </div>
+
+    <div style="border-left:3px solid var(--accent); padding:24px 32px; background:var(--bg-card); margin-bottom:24px;" class="reveal">
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);">
+        El impreso ya no compite por velocidad. Esa batalla la tiene perdida por naturaleza frente a lo digital. Su valor, entonces, <strong style="color:var(--accent);">no puede seguir descansando en la acumulación de piezas</strong>, la cobertura continua o la simple presencia de secciones. Debe desplazarse hacia otros atributos: jerarquía, profundidad, claridad de voz, valor local, memoria, análisis, identidad y construcción de sentido.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 07.4 · OPACIDAD TRANSVERSAL -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">07.4 · La opacidad transversal</div>
+    <h2 class="section-title display reveal">El lector no puede distinguir qué es qué.</h2>
+    <p class="section-lead reveal">En las cinco secciones aparece el mismo problema con variaciones. No es solo un problema ético. Es metodológico y estratégico: si el producto no puede leerse con precisión desde dentro, tampoco puede mejorarse con precisión.</p>
+
+    <div class="opacity-list reveal">
+      <div class="opacity-item"><div class="op-dot red"></div><p class="op-text"><strong>Sección A — Contenido patrocinado sin señalizar:</strong> imita estilo editorial (cabeza, sumario, cuerpo, foto, pie). Sin firma. Sin etiqueta de publicidad. Diluye la frontera entre periodismo y comercial.</p></div>
+      <div class="opacity-item"><div class="op-dot cyan"></div><p class="op-text"><strong>Mi Ciudad — 91 boletines firmados como notas propias:</strong> sin atribuir la fuente oficial, sin contraste con segundas fuentes, con tratamiento favorable a la entidad emisora. El lector cree leer periodismo.</p></div>
+      <div class="opacity-item"><div class="op-dot red"></div><p class="op-text"><strong>Extremo — 36-40 notas estimadas de agencia, solo 2 explicitadas:</strong> el origen real del 40% del contenido escrito es invisible para el lector. Adicional: ~30% de piezas sin autoría identificada.</p></div>
+      <div class="opacity-item"><div class="op-dot cyan"></div><p class="op-text"><strong>VMás — 38 de 76 notas (50%) con indicios de agencia o boletín:</strong> sin atribución clara. Más opacidad parcial en fotonotas y gráficos. Trazabilidad editorial dañada.</p></div>
+      <div class="opacity-item"><div class="op-dot red"></div><p class="op-text"><strong>Toda la operación — Reescritura institucional rutinizada:</strong> Gerardo Hernández (25 boletines), Apolonio Alvarado (23) y otros aparecen como autores de piezas que son comunicados oficiales reciclados. <strong>No es una práctica ocasional: es una rutina estructurada</strong>.</p></div>
+    </div>
+
+    <div class="alert-box reveal">
+      <p>Cuando varias secciones distintas presentan, por caminos distintos, problemas semejantes —exceso de notas, déficit de géneros largos, opacidad de origen, saturación de páginas, mezcla de lógicas comerciales y editoriales— <strong>la causa más probable es sistémica</strong>. El periódico no está fracasando en puntos aislados. Está obedeciendo con eficacia un diseño que privilegia continuidad sobre singularidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · LOS HECHOS -->
+<section>
+  <div class="container">
+    <div class="section-kicker reveal">08 · La síntesis</div>
+    <h2 class="section-title display reveal">Doce hechos para el equipo.</h2>
+    <p class="section-lead reveal">No son opiniones. Son datos verificados que cruzan el análisis digital (Q1 2026) con el análisis del impreso (semana del 1 al 7 de marzo). El periódico produce mucho, sí. La pregunta es qué tipo de valor produce con ese esfuerzo. Léanlos despacio.</p>
+
+    <div class="facts-list">
+      <div class="fact-item reveal"><div class="fact-num">01</div><div class="fact-text">El <strong>0.7%</strong> del tráfico digital genera la mayor calidad de lectura. Ese 0.7% es el negocio real.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">02</div><div class="fact-text">Se publicaron <strong>7.7% más</strong> artículos que el año anterior. La audiencia digital cayó <strong>27.5%</strong>. Más producción no detiene la caída.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">03</div><div class="fact-text">El impreso publica <strong>3,252 piezas al mes</strong> en cuatro secciones. <strong>Cero</strong> son reportajes, crónicas o entrevistas.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">04</div><div class="fact-text">El Semanario digital, con <strong>16 piezas</strong>, duplica en eficiencia editorial a Información, que produce 250 piezas por semana.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">05</div><div class="fact-text">De 25,577 piezas digitales, solo <strong>50</strong> generan el 58% del tráfico. La concentración es brutal.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">06</div><div class="fact-text"><strong>1 Lover = 219 visitantes nuevos</strong> en valor de lectura. El negocio no está en sumar tráfico. Está en cultivar el núcleo fiel.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">07</div><div class="fact-text">Los canales que crecen con más fuerza (Directo <strong>+108%</strong>, IA <strong>+194%</strong>) tienen el mayor RFV del sistema. Quieren periodismo de profundidad.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">08</div><div class="fact-text">Los columnistas firmados tienen RFV de <strong>40–55</strong>. Los reporteros de nota diaria, <strong>6–10</strong>. La voz reconocible es el activo más subexplotado.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">09</div><div class="fact-text">El impreso incluye <strong>110 boletines mensuales</strong> bajo convenio comercial. <strong>91 boletines aparecieron</strong> solo en una semana en Mi Ciudad. Parte del periódico no es periodismo: es cumplimiento institucional con formato de nota.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">10</div><div class="fact-text">Una persona en Extremo produjo <strong>12 notas + cierre impreso + publicación web</strong> en un solo día. Esa concentración no permite verificación, ni profundidad, ni dignidad del oficio.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">11</div><div class="fact-text">Los temas locales —barrios, minería, agua, memoria— tienen <strong>RFV 20–28</strong>, por encima del promedio global (18.22). El territorio premia cuando se lo trabaja con tiempo.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">12</div><div class="fact-text">El periódico regional más importante de Coahuila <strong>no está organizado por su territorio</strong>. Está organizado por flujo. Y el flujo, por definición, viene de fuera.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · LA TESIS -->
+<section class="manifesto-section">
+  <div class="container">
+    <div class="manifesto-eyebrow reveal">09 · La salida no es producir más</div>
+    <h2 class="manifesto-head reveal">El periodismo de volumen para audiencias masivas <span class="acc">está muerto.</span><br>El periodismo que <span class="acc">construye lectores</span> apenas comienza.</h2>
+    <p class="manifesto-lead reveal">
+      Los datos lo gritan en cada cruce: nuestros lectores fieles no quieren más notas. Quieren <strong>menos piezas, mejor hechas, con voz propia, con tiempo de reportería, con tratamiento de revista</strong>. Cuando hemos producido eso —el Semanario, las crónicas de barrio, los perfiles, las reconstrucciones históricas— el lector responde. Cuando producimos volumen sustituible, el lector no regresa. Esto ya no es debate. Es evidencia.
+    </p>
+
+    <div class="bet-block reveal">
+      <div class="bet-eyebrow">La apuesta</div>
+      <div class="bet-text">Apostamos por <span class="acc">contenido premium, largo, narrativo</span>, con <span class="acc">curaduría digital y web</span> como ventaja competitiva sostenible. No como experimento. Como núcleo del modelo.</div>
+    </div>
+
+    <h3 class="manifesto-eyebrow reveal" style="margin-top:120px;">Los siete principios que nos guían</h3>
+
+    <div class="principles-list">
+      <div class="principle-item reveal">
+        <div class="pr-num">01</div>
+        <div class="pr-body">
+          <div class="pr-title">Producir menos. Pensar más.</div>
+          <div class="pr-desc">Reducir <strong>estratégicamente</strong> la pieza sustituible para liberar energía, espacio y prestigio hacia la pieza defendible. El impreso no puede seguir midiéndose solo por cantidad de elementos publicados. El digital tampoco. <strong>De 25,577 piezas digitales, 50 generan el 58% del tráfico</strong>. Nuestro trabajo es identificar y multiplicar esas 50, no las otras 25,527.</div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">02</div>
+        <div class="pr-body">
+          <div class="pr-title">Reportajes, crónicas y perfiles<br>como cuota protegida.</div>
+          <div class="pr-desc">Cada sección con una <strong>obligación mínima semanal</strong> de producir piezas no sustituibles. La A necesita reportaje y entrevista de fondo. Mi Ciudad necesita crónica urbana que rompa el dominio reactivo e institucional. Extremo necesita análisis o narrativa que salga del marcador. VMás necesita crítica, ensayo cultural y perfiles trabajados. Opinión necesita formatos de contrapunto, debate y ensayo largo. <strong>No es lujo. Es la única ruta para construir audiencia que pague.</strong></div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">03</div>
+        <div class="pr-body">
+          <div class="pr-title">La curaduría como inteligencia editorial.</div>
+          <div class="pr-desc">El digital ya no se gana publicando más rápido: se gana <strong>seleccionando, jerarquizando y contextualizando mejor</strong>. Newsletter narrativo semanal con las 5 piezas que importan. Portadas digitales curadas, no algorítmicas. Verticales temáticas con archivo trabajado. Series numeradas que el lector quiera coleccionar. Recirculación deliberada de piezas con valor de archivo. La curaduría es lo que hace que <strong>un lector regrese mañana</strong>.</div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">04</div>
+        <div class="pr-body">
+          <div class="pr-title">La localidad no como tema:<br>como <span style="color:var(--accent);font-style:italic;">régimen editorial</span>.</div>
+          <div class="pr-desc">El territorio es la única ventaja competitiva imposible de replicar. Cada pieza debería preguntarse: <strong>¿qué puede ofrecer Vanguardia desde Saltillo que ningún flujo nacional puede entregar con la misma autoridad?</strong> Los datos muestran que cuando trabajamos así, el RFV pasa de 7 a 28. Los temas locales —agua, minería, memoria, barrios— son nuestro mayor activo no aprovechado.</div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">05</div>
+        <div class="pr-body">
+          <div class="pr-title">La voz reconocible como activo.</div>
+          <div class="pr-desc">Los columnistas con firma fuerte tienen RFV de 40–55. Los reporteros de nota diaria, RFV de 6–10. <strong>La diferencia es siete veces.</strong> No es talento desigual: es modelo desigual. Necesitamos reporteros con <strong>tema propio, voz propia y tiempo propio</strong>. Menos rotación, más especialización. Menos firma genérica, más autoría reconocida. La construcción de marca de cada periodista <em>es</em> la construcción de marca del medio.</div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">06</div>
+        <div class="pr-body">
+          <div class="pr-title">Separar las capas con honestidad radical.</div>
+          <div class="pr-desc">Distinguir, con etiqueta visible para el lector, qué es periodismo propio, qué es agencia, qué es boletín y qué es contenido patrocinado. <strong>No debilita al producto: lo sanea.</strong> Los 110 boletines mensuales bajo convenio no van a desaparecer, pero <strong>deben gobernarse</strong> con reglas claras: etiquetado, tratamiento, contraste obligatorio y proporción máxima respecto al contenido propio. La confianza del lector se construye con transparencia.</div>
+        </div>
+      </div>
+
+      <div class="principle-item reveal">
+        <div class="pr-num">07</div>
+        <div class="pr-body">
+          <div class="pr-title">El digital y el impreso, una sola arquitectura.</div>
+          <div class="pr-desc">Las piezas premium se publican en <strong>digital con tratamiento inmersivo</strong> —scrollytelling, IA generativa para contexto, audio, datos interactivos— y en <strong>impreso con tratamiento de revista</strong> —dobles planas, fotografía editorial, secuencias visuales, coleccionabilidad. La misma pieza, dos formas de leerla, ambas con valor irreemplazable. El paywall que viene en 2027 necesita este inventario para existir.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="manifesto-eyebrow reveal">Metas medibles al cierre de 2026</h3>
+    <div class="okr-grid reveal">
+      <div class="okr-cell"><div class="okr-key">Lovers (núcleo fiel)</div><div class="okr-baseline">9,356</div><div class="okr-arrow">→</div><div class="okr-target">13,000+</div><div class="okr-label">+39% en 7 meses operativos</div></div>
+      <div class="okr-cell"><div class="okr-key">Tráfico directo</div><div class="okr-baseline">294,140</div><div class="okr-arrow">→</div><div class="okr-target">450,000+</div><div class="okr-label">+53% — el canal con mayor RFV</div></div>
+      <div class="okr-cell"><div class="okr-key">Tráfico vía IA</div><div class="okr-baseline">51,411</div><div class="okr-arrow">→</div><div class="okr-target">130,000+</div><div class="okr-label">+153% — la señal del futuro</div></div>
+      <div class="okr-cell"><div class="okr-key">Duración promedio narrativa</div><div class="okr-baseline">≈280 s</div><div class="okr-arrow">→</div><div class="okr-target">420 s+</div><div class="okr-label">+50% por pieza narrativa</div></div>
+      <div class="okr-cell"><div class="okr-key">Newsletter narrativo</div><div class="okr-baseline">0</div><div class="okr-arrow">→</div><div class="okr-target">8,000</div><div class="okr-label">suscriptores. No existe aún.</div></div>
+      <div class="okr-cell"><div class="okr-key">Piezas narrativas / mes</div><div class="okr-baseline">≈4</div><div class="okr-arrow">→</div><div class="okr-target">12+</div><div class="okr-label">84 piezas totales Jun–Dic 2026</div></div>
+    </div>
+
+    <h3 class="manifesto-eyebrow reveal">Los cuatro territorios editoriales</h3>
+    <div class="territories reveal">
+      <div class="territory"><div class="t-num">T1</div><div class="t-name">Ciudad viva: barrios, memoria, conflicto urbano</div><div class="t-desc">Crónicas de barrio, conflictos vecinales, perfiles de personajes anónimos con historias extraordinarias. El núcleo emocional del territorio.</div><div class="t-evidence">Evidencia: "Paseo por la antigua Calle del Cerrito" · "Memorias de Saltillo" → 4,487 usuarios, 42.4% scroll</div></div>
+      <div class="territory"><div class="t-num">T2</div><div class="t-name">Datos y contexto: la región explicada</div><div class="t-desc">Cruza datos públicos, hemeroteca y reportería para explicar procesos de larga duración: agua, gentrificación, salud, economía del trabajo.</div><div class="t-evidence">Evidencia: "Crisis de agua en Torreón" · "Seguros médicos en México" → 338 s promedio de lectura</div></div>
+      <div class="territory"><div class="t-num">T3</div><div class="t-name">Identidad y cultura regional</div><div class="t-desc">Perfiles, identidad regional, cultura popular, expresiones del norte mexicano que rara vez cuentan los medios nacionales.</div><div class="t-evidence">Evidencia: "La leyenda del profesor Berrueto" RFV 30.3 · "Las vulkas atendidas por sordomudos" RFV 45.0</div></div>
+      <div class="territory"><div class="t-num">T4</div><div class="t-name">Memoria y archivo: el pasado que explica el presente</div><div class="t-desc">Reconstrucciones históricas, reportería de archivo, conexiones entre pasado y presente. Donde el territorio manda con más fuerza.</div><div class="t-evidence">Evidencia: "Voces de Allende" → 525 s de lectura, 43% scroll · "Hércules: un pueblo solo" → 7,654 usuarios</div></div>
+    </div>
+
+    <h3 class="manifesto-eyebrow reveal">Diez transformaciones operativas</h3>
+    <div class="proposals-grid reveal">
+      <div class="prop-card hl"><div class="prop-num">01</div><div class="prop-title">Célula narrativa con cadencia</div><div class="prop-desc">Reportajes, crónicas y ensayos como obligación mínima semanal por sección. No experimento: operación con métricas y arquitectura. La deuda más urgente del medio.</div></div>
+      <div class="prop-card hl"><div class="prop-num">02</div><div class="prop-title">Potenciar las portadas</div><div class="prop-desc">La portada es declaración editorial, no redistribuidor. 6–8 llamados máximo. Portadas seccionadas por día temático. El espacio principal para contenido irreemplazable.</div></div>
+      <div class="prop-card hl"><div class="prop-num">03</div><div class="prop-title">Contenidos arrevistados</div><div class="prop-desc">Dobles planas, secuencias fotográficas, infografías editoriales, textos de largo aliento con diseño de revista. El papel puede más. El digital puede más.</div></div>
+      <div class="prop-card hl"><div class="prop-num">04</div><div class="prop-title">Buscar la coleccionabilidad</div><div class="prop-desc">Producir contenidos que el lector quiera guardar. Series numeradas, ediciones especiales, suplementos temáticos que el papel justifique mejor que cualquier pantalla.</div></div>
+      <div class="prop-card ch"><div class="prop-num">05</div><div class="prop-title">Newsletter narrativo semanal</div><div class="prop-desc">Curaduría dominical de las 5 piezas que importan, con voz editorial reconocible. El canal Email tiene RFV 35.93. Es la palanca más rentable hacia el paywall 2027.</div></div>
+      <div class="prop-card ch"><div class="prop-num">06</div><div class="prop-title">Razonamiento visual</div><div class="prop-desc">Infografías, mapas, ilustraciones editoriales y visualizaciones de datos como lenguaje periodístico, no decoración. El impreso puede pensar visualmente. El digital aún más.</div></div>
+      <div class="prop-card ch"><div class="prop-num">07</div><div class="prop-title">Contenidos híbridos</div><div class="prop-desc">Nota + crónica, entrevista + análisis visual, perfil + contexto histórico. Romper la hegemonía de la nota pura como único formato posible.</div></div>
+      <div class="prop-card hl"><div class="prop-num">08</div><div class="prop-title">Redescubrir la ciudad</div><div class="prop-desc">Saltillo y Coahuila a través de lo emotivo y cognitivo: memorias, identidades, tensiones urbanas, personajes anónimos, geografías invisibles. La ciudad como territorio narrativo.</div></div>
+      <div class="prop-card"><div class="prop-num">09</div><div class="prop-title">Separar las capas</div><div class="prop-desc">Distinguir con claridad qué es periodismo propio, agencia, boletín o contenido comercial. Visible para el lector. Útil para el equipo. Indispensable para la credibilidad.</div></div>
+      <div class="prop-card"><div class="prop-num">10</div><div class="prop-title">Gobernar los boletines</div><div class="prop-desc">No eliminarlos. Reglas claras: etiquetado obligatorio, contraste de fuentes, proporción máxima respecto al contenido propio. El convenio se respeta, la credibilidad se protege.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="closing">
+  <div class="container">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:16px;" class="reveal">
+      <span style="width:48px;height:1px;background:var(--accent);"></span>
+      Cierre · Una decisión, no una pregunta
+    </div>
+    <h2 class="closing-q reveal">
+      Producir lo mismo dejó de ser una opción.<br>
+      <span class="acc">Producir mejor</span> es la única ruta sostenible que tenemos.<br>
+      Y producir mejor significa, hoy, <span class="acc">apostar por la narrativa.</span>
+    </h2>
+
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.4vw,30px);line-height:1.45;color:rgba(242,239,231,.82);max-width:920px;margin-bottom:32px;" class="reveal">
+      Los lectores que hoy nos sostienen —los Lovers, los Loyal, los que regresan domingo tras domingo y leen 9 horas al mes— no quieren más notas. Quieren historias suyas, escritas con tiempo, contadas con voz, jerarquizadas con criterio. Quieren un periódico que los reconozca y un sitio web que los acompañe. Quieren <strong style="color:var(--accent);">lo que nadie más, desde Saltillo, puede entregarles con la misma autoridad</strong>.
+    </p>
+
+    <p style="font-family:'Fraunces',serif;font-size:clamp(18px,2vw,24px);line-height:1.5;color:rgba(242,239,231,.65);max-width:920px;margin-bottom:64px;" class="reveal">
+      No es una hipótesis: es lo que demuestran las 161 piezas leídas a profundidad, las 16 del Semanario que duplican en eficiencia a 1,004 piezas masivas, los RFV de 40–55 de los autores con voz propia, los temas locales que premian con scroll y duración. La evidencia ya existe. Solo falta decidir si la escalamos o si la dejamos como excepción.
+    </p>
+
+    <div style="border-top:1px solid rgba(242,239,231,.2); padding-top:48px; margin-top:24px;" class="reveal">
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,4vw,52px);line-height:1.15;color:var(--bg);max-width:1080px;letter-spacing:-0.02em;">
+        Esta es la oportunidad de volver a hacer el periodismo<br>
+        que <span style="color:var(--accent);">justifique nuestra existencia</span>.
+      </p>
+    </div>
+
+    <div class="closing-meta">
+      <div>VANGUARDIA MX · DIAGNÓSTICO UNIFICADO</div>
+      <div>Digital Q1 2026 + Impreso Marzo 2026 + Estrategia Narrativa Jun–Dic 2026</div>
+      <div>Coordinación de Innovación Editorial · Uso interno</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 55);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

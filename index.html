@@ -358,7 +358,60 @@ section:first-of-type { border-top: none; }
 .bet-text { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 3.8vw, 48px); line-height: 1.15; letter-spacing: -0.02em; color: var(--bg); }
 .bet-text .acc { color: var(--accent); }
 
-/* Responsivos para nuevos bloques */
+/* ============ CREED QUOTES — Manifiestos breves ============ */
+
+/* Variante 1: Reivindicación (alineada izquierda, línea acento, sobre crema) */
+.creed-quote { padding: 140px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg); position: relative; overflow: hidden; }
+.creed-quote::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 50%; background: var(--accent); transform: translateY(-50%); }
+.creed-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 40px; }
+.creed-text { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: clamp(48px, 8vw, 128px); line-height: 1; letter-spacing: -0.04em; color: var(--ink); max-width: 1180px; }
+.creed-text .acc { color: var(--accent); }
+.creed-foot { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-3); margin-top: 56px; letter-spacing: 0.12em; }
+
+/* Variante 2: Declaración de fe (centrada, comillas grandes, fondo oscuro) */
+.creed-faith { background: var(--bg-dark); color: var(--bg); padding: 180px 0; text-align: left; position: relative; overflow: hidden; border-top: none; }
+.creed-faith::before { content: "“"; position: absolute; left: -32px; top: 24px; font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 720px; color: rgba(210,55,30,.12); line-height: 0.8; pointer-events: none; }
+.creed-faith .container { position: relative; }
+.creed-faith-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 56px; display: flex; align-items: center; gap: 16px; }
+.creed-faith-eyebrow::before { content: ""; width: 56px; height: 1px; background: var(--accent); }
+.creed-faith-text { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: clamp(56px, 9vw, 152px); line-height: 0.98; letter-spacing: -0.04em; color: var(--bg); max-width: 1240px; }
+.creed-faith-text .acc { color: var(--accent); }
+.creed-faith-foot { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(20px, 2.4vw, 28px); color: rgba(242,239,231,.55); margin-top: 64px; max-width: 720px; line-height: 1.4; }
+
+@media (max-width: 768px) {
+  .creed-quote { padding: 80px 0; }
+  .creed-faith { padding: 100px 0; }
+  .creed-faith::before { font-size: 420px; left: -10px; top: 10px; }
+  .creed-quote::before { width: 4px; }
+}
+
+/* Responsivos para nuevos bloques (impreso, manifiesto) */
+@media (max-width: 1024px) {
+  .volume-grid { grid-template-columns: repeat(2,1fr); }
+  .volume-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .sb-body { grid-template-columns: 1fr; gap: 32px; }
+  .convenio-flow { grid-template-columns: repeat(2,1fr); }
+  .cc-step::after { display: none; }
+  .cc-step { width: 100%; margin: -1px 0 0 0 !important; }
+}
+@media (max-width: 768px) {
+  .volume-grid { grid-template-columns: 1fr; }
+  .convenio-flow { grid-template-columns: 1fr; }
+  .convenio-block { padding: 40px 28px; }
+  .cv-tval { font-size: 52px; }
+  .principle-item { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+  .pr-num { font-size: 48px; }
+  .bet-block { padding: 36px 28px; }
+  .sb-head { gap: 16px; }
+  .sb-letter { font-size: 72px; }
+  .sb-name { font-size: 28px; }
+  .sb-stats { padding: 20px; }
+  .bt-row { grid-template-columns: 1fr 70px; gap: 12px; padding: 12px 16px; }
+  .bt-row .bt-tag { grid-column: 1 / -1; font-size: 12px; padding-top: 4px; }
+  .convenio-block::before { font-size: 320px; right: -30px; top: -40px; }
+}
+
+/* REVEAL */
 @media (max-width: 1024px) {
   .volume-grid { grid-template-columns: repeat(2,1fr); }
   .volume-cell { border-right: none; border-bottom: 1px solid var(--rule); }
@@ -436,7 +489,7 @@ section:first-of-type { border-top: none; }
     <div class="hero-kicker reveal">El espejo completo · Digital + Impreso + Estrategia</div>
     <div class="hero-big-num reveal"><span>813+</span></div>
     <h1 class="hero-headline reveal">
-      Piezas por semana en el impreso. <span class="accent">25,577</span> artículos digitales en el Q1. Y en todo ese volumen, una semana sin un solo reportaje, crónica o entrevista como género. El sistema produce. No construye lectores.
+      Piezas por semana en el impreso. <span class="accent">25,577</span> artículos digitales en el Q1. Y en todo ese volumen, una semana sin un solo reportaje, crónica o entrevista como género. <span class="accent">No estamos construyendo una comunidad de lectores.</span>
     </h1>
     <p class="hero-sub reveal">
       Este es el diagnóstico integrado: la radiografía del impreso, la realidad del digital y la propuesta de transformación con datos verificados. Dos preguntas ordenan todo lo que sigue: ¿para qué producimos tanto? Y ¿para quién?
@@ -653,7 +706,7 @@ section:first-of-type { border-top: none; }
   <div class="container">
     <div class="section-kicker reveal">07 · El impreso — la otra mitad del problema</div>
     <h2 class="section-title display reveal">3,252 piezas al mes.<br>Cero reportajes. Cero crónicas. Cero entrevistas.</h2>
-    <p class="section-lead reveal">Lo que el digital ya señalaba, el impreso lo confirma con escalofriante consistencia. Análisis exhaustivo de cinco secciones —A, Mi Ciudad, Extremo, VMás y Opinión— durante la semana del 1 al 7 de marzo de 2026. El sistema no está roto por falta de trabajo. Está tensionado por la forma en que ese trabajo se organiza.</p>
+    <p class="section-lead reveal">Lo que el digital ya señalaba, el impreso lo confirma con escalofriante consistencia. Análisis exhaustivo de cinco secciones —A, Mi Ciudad, Extremo, VMás y Opinión— durante la semana del 1 al 7 de marzo de 2026. <strong>No estamos rotos por falta de trabajo: estamos tensionados por la forma en que ese trabajo lo organizamos.</strong></p>
 
     <div class="volume-grid reveal">
       <div class="volume-cell">
@@ -898,6 +951,18 @@ section:first-of-type { border-top: none; }
   </div>
 </section>
 
+<!-- CREED QUOTE 1 — REIVINDICACIÓN DE LOS GÉNEROS -->
+<section class="creed-quote">
+  <div class="container">
+    <div class="creed-eyebrow reveal">Una reivindicación</div>
+    <h2 class="creed-text reveal">
+      Los géneros narrativos<br>
+      también son <span class="acc">buen periodismo.</span>
+    </h2>
+    <div class="creed-foot reveal">— Vanguardia, marzo 2026</div>
+  </div>
+</section>
+
 <!-- 07.2 · EL CONVENIO QUE DISTORSIONA -->
 <section style="padding-top:48px;">
   <div class="container">
@@ -958,7 +1023,7 @@ section:first-of-type { border-top: none; }
 <section style="padding-top:0;">
   <div class="container">
     <div class="section-kicker reveal">07.3 · La cadena causal</div>
-    <h2 class="section-title display reveal">Por qué el sistema produce, una y otra vez, este tipo de contenido.</h2>
+    <h2 class="section-title display reveal">Por qué producimos, una y otra vez, este tipo de contenido.</h2>
     <p class="section-lead reveal">No es accidental. No es falta de talento. No es problema de una semana. Cada peldaño explica el siguiente. Y juntos explican el todo.</p>
 
     <div class="causal-chain reveal">
@@ -995,7 +1060,7 @@ section:first-of-type { border-top: none; }
     </div>
 
     <div class="alert-box reveal">
-      <p>Cuando varias secciones distintas presentan, por caminos distintos, problemas semejantes —exceso de notas, déficit de géneros largos, opacidad de origen, saturación de páginas, mezcla de lógicas comerciales y editoriales— <strong>la causa más probable es sistémica</strong>. El periódico no está fracasando en puntos aislados. Está obedeciendo con eficacia un diseño que privilegia continuidad sobre singularidad.</p>
+      <p>Cuando varias secciones distintas presentan, por caminos distintos, problemas semejantes —exceso de notas, déficit de géneros largos, opacidad de origen, saturación de páginas, mezcla de lógicas comerciales y editoriales— <strong>la causa más probable es sistémica</strong>. No estamos fracasando en puntos aislados. Estamos obedeciendo con eficacia un diseño que privilegia continuidad sobre singularidad. Y ese diseño lo podemos cambiar.</p>
     </div>
   </div>
 </section>
@@ -1005,7 +1070,7 @@ section:first-of-type { border-top: none; }
   <div class="container">
     <div class="section-kicker reveal">08 · La síntesis</div>
     <h2 class="section-title display reveal">Doce hechos para el equipo.</h2>
-    <p class="section-lead reveal">No son opiniones. Son datos verificados que cruzan el análisis digital (Q1 2026) con el análisis del impreso (semana del 1 al 7 de marzo). El periódico produce mucho, sí. La pregunta es qué tipo de valor produce con ese esfuerzo. Léanlos despacio.</p>
+    <p class="section-lead reveal">No son opiniones. Son datos verificados que cruzan el análisis digital (Q1 2026) con el análisis del impreso (semana del 1 al 7 de marzo). Producimos mucho, sí. La pregunta que tenemos por delante es qué tipo de valor estamos generando con ese esfuerzo. Léanlos despacio.</p>
 
     <div class="facts-list">
       <div class="fact-item reveal"><div class="fact-num">01</div><div class="fact-text">El <strong>0.7%</strong> del tráfico digital genera la mayor calidad de lectura. Ese 0.7% es el negocio real.</div></div>
@@ -1016,11 +1081,25 @@ section:first-of-type { border-top: none; }
       <div class="fact-item reveal"><div class="fact-num">06</div><div class="fact-text"><strong>1 Lover = 219 visitantes nuevos</strong> en valor de lectura. El negocio no está en sumar tráfico. Está en cultivar el núcleo fiel.</div></div>
       <div class="fact-item reveal"><div class="fact-num">07</div><div class="fact-text">Los canales que crecen con más fuerza (Directo <strong>+108%</strong>, IA <strong>+194%</strong>) tienen el mayor RFV del sistema. Quieren periodismo de profundidad.</div></div>
       <div class="fact-item reveal"><div class="fact-num">08</div><div class="fact-text">Los columnistas firmados tienen RFV de <strong>40–55</strong>. Los reporteros de nota diaria, <strong>6–10</strong>. La voz reconocible es el activo más subexplotado.</div></div>
-      <div class="fact-item reveal"><div class="fact-num">09</div><div class="fact-text">El impreso incluye <strong>110 boletines mensuales</strong> bajo convenio comercial. <strong>91 boletines aparecieron</strong> solo en una semana en Mi Ciudad. Parte del periódico no es periodismo: es cumplimiento institucional con formato de nota.</div></div>
+      <div class="fact-item reveal"><div class="fact-num">09</div><div class="fact-text">El impreso incluye <strong>110 boletines mensuales</strong> bajo convenio comercial. <strong>91 boletines aparecieron</strong> solo en una semana en Mi Ciudad. Parte de lo que publicamos no es periodismo: es cumplimiento institucional con formato de nota.</div></div>
       <div class="fact-item reveal"><div class="fact-num">10</div><div class="fact-text">Una persona en Extremo produjo <strong>12 notas + cierre impreso + publicación web</strong> en un solo día. Esa concentración no permite verificación, ni profundidad, ni dignidad del oficio.</div></div>
       <div class="fact-item reveal"><div class="fact-num">11</div><div class="fact-text">Los temas locales —barrios, minería, agua, memoria— tienen <strong>RFV 20–28</strong>, por encima del promedio global (18.22). El territorio premia cuando se lo trabaja con tiempo.</div></div>
       <div class="fact-item reveal"><div class="fact-num">12</div><div class="fact-text">El periódico regional más importante de Coahuila <strong>no está organizado por su territorio</strong>. Está organizado por flujo. Y el flujo, por definición, viene de fuera.</div></div>
     </div>
+  </div>
+</section>
+
+<!-- CREED QUOTE 2 — DECLARACIÓN DE FE EDITORIAL -->
+<section class="creed-faith">
+  <div class="container">
+    <div class="creed-faith-eyebrow reveal">Nuestra declaración</div>
+    <h2 class="creed-faith-text reveal">
+      Creemos en la lectura<br>
+      <span class="acc">crítica, apasionada<br>y voraz.</span>
+    </h2>
+    <p class="creed-faith-foot reveal">
+      Por eso este diagnóstico. Por eso esta apuesta. Porque escribimos para quien todavía espera que un periódico —en papel o en pantalla— le ofrezca más que un flujo: le ofrezca una mirada.
+    </p>
   </div>
 </section>
 
